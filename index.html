@@ -1,106 +1,81 @@
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV</title>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <title>
+Assigment    
+</title>
 </head>
 <body>
-    
-    <table>
-        <tr>
-            <td>
-                <center><h1><b><u>ELECTIVE</u></b></h1></center>
-            </td>
-        <tr>
-            <tr>
-                <td>
-                    <image src="https://cdn.dribbble.com/users/4983210/screenshots/15845923/media/6f0f08d22575296bdfc22b4217f4df60.png" width="100px"></image>
-                </td>
-            <tr>
-        <tr>
-            <td>
-                <b>Junaid Saleem</b>
-            </td>
-        <tr>
-            
-        <tr>
-            <td>
-                CONTACT ADDRESS<br>P.E.C.Hs Block 6 <br>DISTRICT - Karachi<br>PIN CODE - 4546<br>PHONE NO. - 03151356195
-            </td>
-        </tr>
-
-        <tr>
-            <td>
-               <br><br><b>CARRER OBJECTIVE</b>
-            </td>
-        </tr>
-        <tr>
-            <td>
-               <br> To work in a Challenging environment where my knowledge and Experience can be sheared and enriched.
-            </td>
-        </tr>
-        <tr>
-            <td>
-               <br><br><b> ACADEMIC QUALIFICATION </b>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div><ul>
-                    <li><b>INTERMEDIATE - </b>passed in 2020 from Bahria College with A Grade</li>
-                    <li><b>SCHOOL - </b>passed in 2018 from SMART School with A+ Grade</li>
-                            <li><b>Typing - </b>English only</li></ul>
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-10 m-auto bg-light p-5"> <!--margin kay liye-->
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h1>Assignment<h1>
+                    <h4>Api Frontend</h4>                            
+                    <h7>Develop by Junaid Saleem</h7>                            
                 </div>
-            </td>
-        </tr>
-        <tr>
-            <td><br><b>EXPERIENCE</b>
-                <div><ol>
-                <li>Computer Hardwaring</li>
-                <li>Computer Networking</li>
-                <li>Cloud Computer</li>
-                <li>C# Programming</li>
-                <li>Android Development</li>
-                </ol></div></td>
-        </tr>
-        <tr>
-            <td><br><b>STRENGHTS</b>
-                <div><Ul>
-                <li>Hardworking & Confident.</li>
-                <li>Responsible.</li>
-                <li>Self Motivation & Smart Working.</li>
-                </Ul></div></td>
-        </tr>
-        <tr>
-            <td><br><b>PERSONEL DETAILS</b></td>
-        </tr>
-        <tr>
-            <td>
-            Name                : Junaid Saleem<br>
-            Father Name         : Saleem Akhtar<br>
-            DAte Of Birth       : 18-Aug-2000<br>
-            Email               : junaid.saleem.10144@gmail.com<br>
-            Nationality         : Pakistan<br>
-            Language            : Urdu, English<br>
-            </td>
-        </tr>
-        <tr>
-            <td><br><b>PERSONEL DETAILS</b></td>
-        </tr>
-        <tr>
-            <td>
-                I hereby declare that the above information given by me is true to best of my Knowledge and belief.<br>I work in your esteemed co-operation with my full devotion.
-            </td>
-        </tr>
-        <tr>
-            <td><br><hr>
-               <strong> Date : __/__/____  </strong>         </td>
-        </tr>
+            </div>
+            <hr class="my-4">
+            <div class="d-flex">
+                <div style="width: 30%;">
+                    <h4>Student Information</h4>
+                </div>
+            </div>
+            <hr class="my-2">
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="add_num1">Student Name</label>
+                    <input type="text" class="form-control" id="student_name">
+                </div>
+                <div class="col-md-6">
+                    <label for="add_num2">Father Name</label>
+                    <input type="text" class="form-control" id="father_name">
+                </div>
+                <div class="col-md-6">
+                    <label for="add_num2">Age</label>
+                    <input type="text" class="form-control" id="age">
+                </div>
+                <div class="col-md-6">
+                    <label for="add_num2">Roll No</label>
+                    <input type="text" class="form-control" id="roll_no">
+                    <input type="hidden" class="form-control" id="student_id">
+                </div>
+            </div>
+            <div class="row">
+                <div class="modal-footer">
+                    <button class="btn btn-primary" style="margin-top: 30px;" onclick="post_create();">Create Post Request</button>
+                    <button class="btn btn-success" style="margin-top: 30px;" onclick="get_all();">Get All Student</button>
+                    <button class="btn btn-warning" style="margin-top: 30px;" onclick="update_student();">Update Student</button>
+                    <button class="btn btn-danger" style="margin-top: 30px;" onclick="delete_student();">Delete Student</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12" id="Divusers">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                            <th>Student Name</th>
+                            <th>Father Name</th>
+                            <th>Age</th>
+                            <th>Roll No</th>
+                            <th>Action</th>
+                        </tr>
+                        </thead>
+                        <tbody  id="tblper">
+                        </tbody>                            
+                    </table>
+                </div>               
+            </div>
+            <hr class="my-4">
 
-
-    </table>
-
+        </div>
+    </div>
+</div>
 </body>
+<script src="operator.js"></script>
 </html>
